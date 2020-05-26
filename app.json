@@ -1,0 +1,17 @@
+{
+  "name": "Maverick",
+  "displayName": "Maverick",
+  "expo": {
+    "name": "Maverick",
+    "slug": "Maverick",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
