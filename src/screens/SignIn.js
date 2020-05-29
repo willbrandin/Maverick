@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import PinEntry from "../components/Keypad/PinEntry";
+import PinEntry from "../components/Keypad/PinEntry/PinEntry.component";
 
 // Context
 import { Context as AuthContext } from "../context/AuthContext/AuthContext";
@@ -20,7 +20,12 @@ const SignIn = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#0A0617" }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "#0A0617",
+      }}
+    >
       <PinEntry
         onPinEntered={onPinEntered}
         loading={state.isLoading}

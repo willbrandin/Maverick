@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import MetricSquareTile from "../components/Metrics/MetricSquareTile";
-import LargeHeader from "../components/LargeHeader/LargeHeader";
+import LargeHeader from "../components/LargeHeader/LargeHeader.component";
 import { Context as MarketContext } from "../context/MarketSelectorContext/MarketSelectorContext";
 import MetricRowSection from "../components/Metrics/MetricRowSection";
 import MetricSquareScrollView from "../components/Metrics/MetricSquareScrollView";

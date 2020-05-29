@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { Text, View, FlatList, TouchableOpacity } from "react-native";
 import { Context as MarketContext } from "../context/MarketSelectorContext/MarketSelectorContext";
-import LargeHeader from "../components/LargeHeader/LargeHeader";
+import LargeHeader from "../components/LargeHeader/LargeHeader.component";
 import Spacer from "../components/Spacer";
-import MarketListItem from "../components/ListItems/MarketListItem";
+import MarketListItem from "../components/ListItems/MarketListItem/MarketListItem.component";
 
 const MarketSelector = () => {
   const { state, fetchMarkets, selectedMarket } = useContext(MarketContext);

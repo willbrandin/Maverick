@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import NumberButton from "./NumberButton";
-import Spacer from "../Spacer";
-import PinEntryCircle from "./PinEntryCircle";
+import { View, Text } from "react-native";
+import styles from "./PinEntry.component.style";
+import NumberButton from "../NumberButton/NumberButton.component";
+import Spacer from "../../Spacer";
+import PinEntryCircle from "../PinEntryCircle/PinEntryCircle.component";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const pinLimit = 6;
@@ -77,34 +78,5 @@ const PinEntry = ({ onPinEntered, loading, error, onPinCleared }) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  header: {
-    fontSize: 24,
-    fontWeight: "600",
-    color: "white",
-    marginTop: 60,
-  },
-  subheader: {
-    fontSize: 18,
-    color: "white",
-  },
-  error: {
-    fontSize: 16,
-    color: "red",
-    fontWeight: "600",
-  },
-  container: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonRow: {
-    flexDirection: "row",
-  },
-  finalRow: {
-    flexDirection: "row",
-    marginLeft: 94, // Width of Button + Margin Left + Margin Right
-  },
-});
 
 export default PinEntry;
