@@ -13,7 +13,7 @@ const MetricRow = () => {
 
             <Image
               style={styles.tickerImg}
-              source={require("../../assets/img/tickerGreen/TickerGreen.png")}
+              source={require("../../../assets/img/tickerGreen/TickerGreen.png")}
             />
           </View>
         </View>

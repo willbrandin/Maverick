@@ -10,8 +10,8 @@ const MarketStatLine = ({ title, value, isNegative }) => (
         style={styles.tickerImg}
         source={
           isNegative
-            ? require("../../assets/img/tickerRed/TickerRed.png")
-            : require("../../assets/img/tickerGreen/TickerGreen.png")
+            ? require("../../../assets/img/tickerRed/TickerRed.png")
+            : require("../../../assets/img/tickerGreen/TickerGreen.png")
         }
       />
     </View>

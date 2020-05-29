@@ -13,7 +13,7 @@ const MetricSquareTile = () => {
       <View style={styles.tickerContainer}>
         <Image
           style={styles.tickerImg}
-          source={require("../../assets/img/tickerRed/TickerRed.png")}
+          source={require("../../../assets/img/tickerRed/TickerRed.png")}
         />
         <Text style={styles.tickerTitle}>Down From Yesterday.</Text>
       </View>
