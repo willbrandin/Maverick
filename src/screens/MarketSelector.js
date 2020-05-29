@@ -5,6 +5,8 @@ import LargeHeader from "../components/LargeHeader/LargeHeader.component";
 import Spacer from "../components/Spacer";
 import MarketListItem from "../components/ListItems/MarketListItem/MarketListItem.component";
 
+import { backgroundPrimary } from "../styles/common.style";
+
 const MarketSelector = () => {
   const { state, fetchMarkets, selectedMarket } = useContext(MarketContext);
 
@@ -34,7 +36,7 @@ const MarketSelector = () => {
   );
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#0A0617" }}>
+    <View style={{ ...backgroundPrimary }}>
       <LargeHeader
         title={"Select Market"}
         subtitle={

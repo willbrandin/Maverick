@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { Text, View, Image } from "react-native";
+import styles from "./MetricRow.component.style";
 
 const MetricRow = () => {
   return (
@@ -12,7 +13,7 @@ const MetricRow = () => {
 
             <Image
               style={styles.tickerImg}
-              source={require("../../../assets/img/tickerGreen/TickerGreen.png")}
+              source={require("../../../../assets/img/tickerGreen/TickerGreen.png")}
             />
           </View>
         </View>
@@ -25,29 +26,3 @@ const MetricRow = () => {
 };
 
 export default MetricRow;
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    marginHorizontal: 16,
-    marginVertical: 8,
-    backgroundColor: "#16162D",
-    borderRadius: 6,
-  },
-  title: {
-    fontWeight: "bold",
-    fontSize: 26,
-    color: "#94949E",
-  },
-  detail: {
-    fontWeight: "bold",
-    fontSize: 26,
-    color: "#FDFDFD",
-    marginRight: 8,
-  },
-  tickerTitle: {
-    fontSize: 8,
-    color: "#94949e",
-  },
-  tickerImg: {},
-});

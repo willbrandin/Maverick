@@ -2,14 +2,16 @@ import React, { useContext } from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
 import LargeHeader from "../components/LargeHeader/LargeHeader.component";
 import { Context as MarketContext } from "../context/MarketSelectorContext/MarketSelectorContext";
-import MetricRowSection from "../components/Metrics/MetricRowSection";
-import MetricSquareScrollView from "../components/Metrics/MetricSquareScrollView";
+import MetricRowSection from "../components/Metrics/MetricRowSection/MetricRowSection.component";
+import MetricSquareScrollView from "../components/Metrics/MetricSquareScrollView/MetricSquareScrollView.component";
+
+import { backgroundPrimary } from "../styles/common.style";
 
 const Home = () => {
   const { state: marketState } = useContext(MarketContext);
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#0A0617" }}>
+    <View style={{ ...backgroundPrimary }}>
       <LargeHeader title={marketState.selectedMarket.marketName} />
 
       <ScrollView>

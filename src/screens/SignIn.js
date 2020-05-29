@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import PinEntry from "../components/Keypad/PinEntry/PinEntry.component";
+import { backgroundPrimary } from "../styles/common.style";
 
 // Context
 import { Context as AuthContext } from "../context/AuthContext/AuthContext";
@@ -22,8 +23,7 @@ const SignIn = ({ navigation }) => {
   return (
     <View
       style={{
-        flex: 1,
-        backgroundColor: "#0A0617",
+        ...backgroundPrimary,
       }}
     >
       <PinEntry
