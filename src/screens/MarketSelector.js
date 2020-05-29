@@ -8,8 +8,6 @@ import MarketListItem from "../components/ListItems/MarketListItem";
 const MarketSelector = () => {
   const { state, fetchMarkets, selectedMarket } = useContext(MarketContext);
 
-  console.log(state);
-
   useEffect(() => {
     const fetch = async () => {
       await fetchMarkets();
@@ -45,7 +43,6 @@ const MarketSelector = () => {
       />
       <Spacer />
       <FlatList
-        // style={{ flex: 1, borderColor: "red", borderWidth: 1 }}
         keyExtractor={(market) => market.marketId.toString()}
         data={state.availableMarkets}
         renderItem={this.renderItem}

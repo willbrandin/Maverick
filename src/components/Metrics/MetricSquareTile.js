@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     color: "#94949e",
   },
   subtitle: {
-    fontSize: 8,
+    fontSize: 12,
     color: "rgba(148, 148, 148, 0.6)",
     paddingBottom: 8,
   },
@@ -46,11 +46,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 48,
     color: "#fdfdfd",
-    paddingBottom: 4,
   },
   metricSubtitle: {
     fontWeight: "500",
-    fontSize: 8,
+    fontSize: 12,
     color: "#94949e",
   },
   tickerContainer: {
@@ -58,7 +57,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   tickerTitle: {
-    fontSize: 8,
+    fontSize: 12,
     color: "#94949e",
   },
   tickerImg: {

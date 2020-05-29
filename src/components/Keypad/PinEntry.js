@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const pinLimit = 6;
 
-const PinEntry = ({ onPinEntered, disabled }) => {
+const PinEntry = ({ onPinEntered, loading, error, onPinCleared }) => {
   const [pinNumber, setPin] = useState("");
   const [pinDisplay, setDisplay] = useState([0, 0, 0, 0, 0, 0]);
 
@@ -34,12 +34,13 @@ const PinEntry = ({ onPinEntered, disabled }) => {
 
     setDisplay([0, 0, 0, 0, 0, 0]);
     setPin("");
+    onPinCleared();
   };
 
   return (
     <SafeAreaView
       style={styles.container}
-      pointerEvents={disabled ? "none" : "auto"} // Logic to be used for when loading API
+      pointerEvents={loading ? "none" : "auto"} // Logic to be used for when loading API
     >
       <Spacer />
       <Text style={styles.header}>Welcome back!</Text>
@@ -49,6 +50,7 @@ const PinEntry = ({ onPinEntered, disabled }) => {
       <View style={styles.buttonRow}>
         <PinEntryCircle pinMax={pinDisplay} />
       </View>
+      <Text style={styles.error}>{error}</Text>
 
       <Spacer />
 
@@ -86,6 +88,11 @@ const styles = StyleSheet.create({
   subheader: {
     fontSize: 18,
     color: "white",
+  },
+  error: {
+    fontSize: 16,
+    color: "red",
+    fontWeight: "600",
   },
   container: {
     justifyContent: "center",

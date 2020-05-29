@@ -2,7 +2,7 @@ import * as React from "react";
 import { useContext } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createSwitchNavigator } from "react-navigation";
+import { StatusBar } from "react-native";
 
 // Screens
 import SignIn from "./src/screens/SignIn";
@@ -16,6 +16,9 @@ import { Context as AuthContext } from "./src/context/AuthContext/AuthContext";
 
 import { Provider as MarketProvider } from "./src/context/MarketSelectorContext/MarketSelectorContext";
 import { Context as MarketContext } from "./src/context/MarketSelectorContext/MarketSelectorContext";
+
+// Set Status Bar Style
+StatusBar.setBarStyle("light-content");
 
 // Navigation
 const AuthStack = createStackNavigator();
