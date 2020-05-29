@@ -34,6 +34,7 @@ const authReducer = (state, action) => {
 
 const signIn = (dispatch) => async (pinNumber) => {
   let token;
+  console.log(pinNumber);
 
   try {
     const response = await raidersApi.post("login/createtoken", {

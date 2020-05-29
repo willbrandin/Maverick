@@ -49,21 +49,14 @@ const AppStackScreen = () => {
   const { state: marketState } = useContext(MarketContext);
 
   return (
-    <AppStack.Navigator>
+    <AppStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <AppStack.Screen
         name={marketState.selectedMarket.marketName}
         component={Home}
-        options={{
-          headerStyle: {
-            backgroundColor: "#0A0617",
-            shadowColor: "transparent",
-          },
-          headerTintColor: "#fff",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-          borderBottomWidth: 0,
-        }}
       />
     </AppStack.Navigator>
   );

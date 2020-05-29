@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import { sub } from "react-native-reanimated";
 
 const LargeHeader = ({ title, subtitle }) => {
   return (
@@ -23,8 +22,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "bold",
-    fontSize: 24,
+    fontSize: 26,
     color: "#fff",
+    letterSpacing: 0.3,
   },
   subtitle: {
     // fontWeight: "400",
