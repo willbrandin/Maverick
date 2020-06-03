@@ -1,23 +1,14 @@
 import React, { useContext } from "react";
 import { DrawerItem, DrawerContentScrollView } from "@react-navigation/drawer";
-import { View } from "react-native";
+import { SafeAreaView, View, Text, Image } from "react-native";
 import styles from "./DrawerContent.component.style";
-
-import {
-  useTheme,
-  Avatar,
-  Title,
-  Caption,
-  Paragraph,
-  Drawer,
-  Text,
-  TouchableRipple,
-  Switch,
-} from "react-native-paper";
-
+import { Drawer } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+const logo = require("../../../assets/img/logo/Logo.png");
+
+// Context
 import { Context as MarketContext } from "../../context/MarketSelectorContext/MarketSelectorContext";
 import { Context as AuthContext } from "../../context/AuthContext/AuthContext";
 
@@ -26,37 +17,27 @@ const DrawerContent = (props) => {
   const { signOut } = useContext(AuthContext);
 
   onSignOutTapped = async () => {
-    props.navigation.navigate("Saint");
-    setEmptyMarkets();
     await signOut();
+    setEmptyMarkets();
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={styles.drawerContainer}>
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
-          <View style={styles.userInfoSection}>
-            <View
-              style={{
-                flexDirection: "row",
-                marginTop: 16,
-                alignItems: "center",
-              }}
-            >
-              <Avatar.Text label="WB" size={48} />
-              <View
-                style={{
-                  marginLeft: 16,
-                  flexDirection: "column",
-                }}
-              >
-                <Title style={styles.title}>Will Brandin</Title>
-                <Caption style={styles.caption}>Admin</Caption>
+          <View style={styles.headerSection}>
+            <View style={styles.userInfoContainer}>
+              <Image source={logo} />
+              <View style={styles.userInfoNameContainer}>
+                <Text style={styles.title}>Will Brandin</Text>
+                <Text style={styles.caption}>Admin</Text>
               </View>
             </View>
 
-            <View style={{ flexDirection: "row", marginTop: 16 }}>
-              <Title>{marketState.selectedMarket.marketName}</Title>
+            <View style={styles.marketNameContainer}>
+              <Text style={styles.marketTitle}>
+                {marketState.selectedMarket.marketName}
+              </Text>
             </View>
           </View>
 
@@ -70,10 +51,13 @@ const DrawerContent = (props) => {
                 />
               )}
               label="Saint"
+              labelStyle={{ fontSize: 16 }}
+              inactiveTintColor={styles.drawerItem.color}
               onPress={() => {
                 props.navigation.navigate("Saint");
               }}
             />
+
             <DrawerItem
               icon={({ color, size }) => (
                 <MaterialCommunityIcons
@@ -83,6 +67,8 @@ const DrawerContent = (props) => {
                 />
               )}
               label="Raiders"
+              inactiveTintColor={styles.drawerItem.color}
+              labelStyle={{ fontSize: 16 }}
               onPress={() => {
                 props.navigation.navigate("Raiders");
               }}
@@ -96,6 +82,8 @@ const DrawerContent = (props) => {
                 />
               )}
               label="Ricky Bobby"
+              inactiveTintColor={styles.drawerItem.color}
+              labelStyle={{ fontSize: 16 }}
               onPress={() => {
                 props.navigation.navigate("RickyBobby");
               }}
@@ -109,6 +97,8 @@ const DrawerContent = (props) => {
                 />
               )}
               label="Tony Starch"
+              inactiveTintColor={styles.drawerItem.color}
+              labelStyle={{ fontSize: 16 }}
               onPress={() => {
                 props.navigation.navigate("TonyStarch");
               }}
@@ -118,6 +108,8 @@ const DrawerContent = (props) => {
                 <MaterialIcons name="phone-iphone" size={size} color={color} />
               )}
               label="Spider-Man"
+              inactiveTintColor={styles.drawerItem.color}
+              labelStyle={{ fontSize: 16 }}
               onPress={() => {
                 props.navigation.navigate("Spiderman");
               }}
@@ -131,6 +123,7 @@ const DrawerContent = (props) => {
             <MaterialIcons name="store" size={size} color={color} />
           )}
           label="Switch Market"
+          inactiveTintColor="#94949e"
           onPress={() => {
             props.navigation.navigate("MarketSwitcher");
           }}
@@ -139,11 +132,12 @@ const DrawerContent = (props) => {
           icon={({ color, size }) => (
             <MaterialIcons name="exit-to-app" size={size} color={color} />
           )}
+          inactiveTintColor="#94949e"
           label="Sign Out"
           onPress={onSignOutTapped}
         />
       </Drawer.Section>
-    </View>
+    </SafeAreaView>
   );
 };
 

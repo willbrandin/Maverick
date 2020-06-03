@@ -3,46 +3,52 @@ import theme from "../../styles/theme.style";
 import { title, body, caption } from "../../styles/common.style";
 
 export default StyleSheet.create({
+  drawerContainer: {
+    flex: 1,
+    backgroundColor: "#28283C",
+  },
   drawerContent: {
     flex: 1,
   },
-  userInfoSection: {
-    paddingLeft: 20,
+  headerSection: {
+    paddingLeft: theme.SPACING.MEDIUM,
   },
-  title: {
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  caption: {
-    fontSize: 14,
-    lineHeight: 14,
-  },
-  row: {
-    marginTop: 20,
+  userInfoContainer: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  userInfoNameContainer: {
+    marginLeft: theme.SPACING.MEDIUM,
+    flexDirection: "column",
+  },
+  marketNameContainer: {
+    flexDirection: "row",
+    marginTop: theme.SPACING.LARGE,
+  },
+  title: {
+    ...body,
+  },
+  caption: {
+    ...caption,
+    lineHeight: 14,
+  },
+  marketTitle: {
+    ...title,
   },
   section: {
     flexDirection: "row",
     alignItems: "center",
-    marginRight: 15,
-  },
-  paragraph: {
-    fontWeight: "bold",
-    marginRight: 3,
+    marginRight: theme.SPACING.MEDIUM,
   },
   drawerSection: {
-    marginTop: 15,
+    marginTop: theme.SPACING.SMALL,
+  },
+  drawerItem: {
+    color: "#fff",
   },
   bottomDrawerSection: {
-    marginBottom: 15,
-    borderTopColor: "#f4f4f4",
+    marginBottom: theme.SPACING.SMALL,
+    borderTopColor: theme.TERTIARY_TEXT_COLOR,
     borderTopWidth: 1,
-  },
-  preference: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingVertical: 12,
-    paddingHorizontal: 16,
   },
 });

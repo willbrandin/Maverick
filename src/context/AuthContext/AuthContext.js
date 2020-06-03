@@ -22,7 +22,7 @@ const authReducer = (state, action) => {
       return { ...state, errorMessage: "" };
 
     case SIGN_OUT:
-      return { token: null, errorMessage: "" };
+      return { token: null, isLoading: false, errorMessage: "" };
 
     case SET_LOADING:
       return { ...state, isLoading: action.payload, errorMessage: "" };
@@ -45,8 +45,8 @@ const signIn = (dispatch) => async (pinNumber) => {
     AsyncStorage.setItem("AUTH_TOKEN_KEY", token);
     dispatch({ type: USER_SIGN_IN, payload: token });
   } catch (error) {
+    console.log("Error Signing In");
     console.log(error);
-
     dispatch({ type: AUTH_ERROR, payload: "Invalid Pin" });
   }
 };
@@ -60,6 +60,7 @@ const signOut = (dispatch) => async () => {
     await AsyncStorage.removeItem("AUTH_TOKEN_KEY");
     dispatch({ type: SIGN_OUT });
   } catch (error) {
+    console.log("Error Signing Out");
     console.log(error);
   }
 };

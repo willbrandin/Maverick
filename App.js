@@ -6,6 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { Platform, StatusBar } from "react-native";
 
+// Custom Drawer
 import DrawerContent from "./src/components/DrawerContent/DrawerContent.component";
 
 // Screens
@@ -23,8 +24,11 @@ import TonyStarch from "./src/screens/TonyStarch";
 import { Provider as AuthProvider } from "./src/context/AuthContext/AuthContext";
 import { Context as AuthContext } from "./src/context/AuthContext/AuthContext";
 
+// Market Provider
 import { Provider as MarketProvider } from "./src/context/MarketSelectorContext/MarketSelectorContext";
 import { Context as MarketContext } from "./src/context/MarketSelectorContext/MarketSelectorContext";
+
+// Paper
 import { Provider as PaperProvider } from "react-native-paper";
 
 // Set Status Bar Style
