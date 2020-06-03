@@ -6,6 +6,7 @@ import {
   MARKET_SELECTED,
   CLEAR_ERRORS,
   SET_LOADING,
+  SET_EMPTY_MARKETS,
 } from "./MarketSelectorTypes";
 
 const authReducer = (state, action) => {
@@ -32,6 +33,13 @@ const authReducer = (state, action) => {
     case SET_LOADING:
       return { ...state, isLoading: action.payload, errorMessage: "" };
 
+    case SET_EMPTY_MARKETS:
+      return {
+        selectedMarket: null,
+        availableMarkets: null,
+        isLoading: false,
+        errorMessage: "",
+      };
     default:
       return state;
   }
@@ -60,9 +68,13 @@ const clearErrors = (dispatch) => () => {
   dispatch({ type: CLEAR_ERRORS });
 };
 
+const setEmptyMarkets = (dispatch) => () => {
+  dispatch({ type: SET_EMPTY_MARKETS });
+};
+
 export const { Provider, Context } = createDataContext(
   authReducer,
-  { fetchMarkets, selectedMarket, clearErrors },
+  { fetchMarkets, selectedMarket, clearErrors, setEmptyMarkets },
   {
     availableMarkets: [],
     selectedMarket: null,

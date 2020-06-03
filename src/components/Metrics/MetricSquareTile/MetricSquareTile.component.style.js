@@ -7,7 +7,7 @@ export default StyleSheet.create({
     padding: theme.SPACING.MEDIUM,
     marginHorizontal: theme.SPACING.MEDIUM,
     backgroundColor: theme.SECONDARY_BACKGROUND_COLOR,
-    borderRadius: 6,
+    borderRadius: 8,
     width: theme.METRIC_TILE.SIZE,
     height: theme.METRIC_TILE.SIZE,
   },
@@ -27,6 +27,7 @@ export default StyleSheet.create({
     fontWeight: "500",
   },
   tickerContainer: {
+    marginTop: theme.SPACING.MEDIUM,
     flexDirection: "row",
     alignItems: "center",
   },

@@ -1,20 +1,25 @@
 import React, { useContext } from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import LargeHeader from "../components/LargeHeader/LargeHeader.component";
 import { Context as MarketContext } from "../context/MarketSelectorContext/MarketSelectorContext";
 import MetricRowSection from "../components/Metrics/MetricRowSection/MetricRowSection.component";
 import MetricSquareScrollView from "../components/Metrics/MetricSquareScrollView/MetricSquareScrollView.component";
-
 import { backgroundPrimary } from "../styles/common.style";
+import HomeHeader from "../components/Home/HomeHeader/HomeHeader.component";
+import MenuHeader from "../components/MenuHeader/MenuHeader.component";
 
-const Home = () => {
+const TonyStarch = ({ navigation }) => {
   const { state: marketState } = useContext(MarketContext);
 
   return (
     <View style={{ ...backgroundPrimary }}>
-      <LargeHeader title={marketState.selectedMarket.marketName} />
+      <MenuHeader
+        title={marketState.selectedMarket.marketName}
+        navigation={navigation}
+      />
 
       <ScrollView>
+        <HomeHeader title="Tony Starch" subtitle="Last Updated Yesterday" />
+
         <MetricSquareScrollView />
 
         <MetricRowSection title="Active Guests That Have Used Services in 30 Days" />
@@ -25,6 +30,6 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default TonyStarch;
 
 const styles = StyleSheet.create({});

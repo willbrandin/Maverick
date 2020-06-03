@@ -6,8 +6,9 @@ import Spacer from "../components/Spacer";
 import MarketListItem from "../components/ListItems/MarketListItem/MarketListItem.component";
 
 import { backgroundPrimary } from "../styles/common.style";
+import MenuHeader from "../components/MenuHeader/MenuHeader.component";
 
-const MarketSelector = () => {
+const MarketSwitcher = ({ navigation }) => {
   const { state, fetchMarkets, selectedMarket } = useContext(MarketContext);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const MarketSelector = () => {
       <TouchableOpacity
         onPress={() => {
           selectedMarket(market);
+          navigation.navigate("Saint");
         }}
       >
         <MarketListItem market={market} />
@@ -37,13 +39,7 @@ const MarketSelector = () => {
 
   return (
     <View style={{ ...backgroundPrimary }}>
-      <LargeHeader
-        title={"Select Market"}
-        subtitle={
-          "To see more details, select a market. You can always select another."
-        }
-      />
-      <Spacer />
+      <MenuHeader title="Select Market" navigation={navigation} />
       <FlatList
         keyExtractor={(market) => market.marketId.toString()}
         data={state.availableMarkets}
@@ -53,4 +49,4 @@ const MarketSelector = () => {
   );
 };
 
-export default MarketSelector;
+export default MarketSwitcher;

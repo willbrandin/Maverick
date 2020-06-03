@@ -55,8 +55,13 @@ const clearErrors = (dispatch) => () => {
   dispatch({ type: CLEAR_ERRORS });
 };
 
-const signOut = (dispatch) => () => {
-  dispatch({ type: SIGN_OUT });
+const signOut = (dispatch) => async () => {
+  try {
+    await AsyncStorage.removeItem("AUTH_TOKEN_KEY");
+    dispatch({ type: SIGN_OUT });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const { Provider, Context } = createDataContext(

@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View } from "react-native";
+import Ticker from "../../Ticker/Ticker.component";
 import styles from "./MetricRow.component.style";
 
 const MetricRow = () => {
@@ -11,10 +12,7 @@ const MetricRow = () => {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Text style={styles.detail}>75</Text>
 
-            <Image
-              style={styles.tickerImg}
-              source={require("../../../../assets/img/tickerGreen/TickerGreen.png")}
-            />
+            <Ticker positive />
           </View>
         </View>
       </View>
