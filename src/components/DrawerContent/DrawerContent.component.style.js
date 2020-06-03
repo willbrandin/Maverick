@@ -30,7 +30,6 @@ export default StyleSheet.create({
   },
   caption: {
     ...caption,
-    lineHeight: 14,
   },
   marketTitle: {
     ...title,
@@ -50,5 +49,19 @@ export default StyleSheet.create({
     marginBottom: theme.SPACING.SMALL,
     borderTopColor: theme.TERTIARY_TEXT_COLOR,
     borderTopWidth: 1,
+  },
+  footnote: {
+    flexDirection: "row",
+    marginLeft: theme.SPACING.MEDIUM,
+    marginTop: theme.SPACING.MEDIUM,
+  },
+  footnoteLabel: {
+    ...caption,
+    color: theme.TERTIARY_TEXT_COLOR,
+    marginHorizontal: theme.SPACING.SMALL / 2,
+  },
+  footnoteIcon: {
+    fontSize: theme.FONT_SIZE_BODY,
+    color: theme.TERTIARY_TEXT_COLOR,
   },
 });

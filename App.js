@@ -34,7 +34,7 @@ import { Provider as PaperProvider } from "react-native-paper";
 // Set Status Bar Style
 StatusBar.setBarStyle("light-content");
 
-if (Platform.OS === "android") {
+if (Platform.OS !== "ios") {
   StatusBar.setBackgroundColor("#0A0617");
 }
 

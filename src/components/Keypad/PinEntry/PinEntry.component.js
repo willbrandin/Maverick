@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import styles from "./PinEntry.component.style";
 import NumberButton from "../NumberButton/NumberButton.component";
 import Spacer from "../../Spacer";
 import PinEntryCircle from "../PinEntryCircle/PinEntryCircle.component";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const pinLimit = 6;
 

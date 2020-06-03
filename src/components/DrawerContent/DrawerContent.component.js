@@ -12,11 +12,15 @@ const logo = require("../../../assets/img/logo/Logo.png");
 import { Context as MarketContext } from "../../context/MarketSelectorContext/MarketSelectorContext";
 import { Context as AuthContext } from "../../context/AuthContext/AuthContext";
 
+import { NavigationActions } from "react-navigation";
+
 const DrawerContent = (props) => {
   const { state: marketState, setEmptyMarkets } = useContext(MarketContext);
   const { signOut } = useContext(AuthContext);
 
   onSignOutTapped = async () => {
+    props.navigation.navigate("Saint");
+
     await signOut();
     setEmptyMarkets();
   };
@@ -136,6 +140,19 @@ const DrawerContent = (props) => {
           label="Sign Out"
           onPress={onSignOutTapped}
         />
+
+        <View style={styles.footnote}>
+          <MaterialCommunityIcons
+            name="code-tags"
+            style={styles.footnoteIcon}
+          />
+          <Text style={styles.footnoteLabel}>with</Text>
+          <MaterialCommunityIcons
+            style={styles.footnoteIcon}
+            name="cards-heart"
+          />
+          <Text style={styles.footnoteLabel}>by Solvent</Text>
+        </View>
       </Drawer.Section>
     </SafeAreaView>
   );
