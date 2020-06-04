@@ -7,9 +7,10 @@ import { backgroundPrimary } from "../styles/common.style";
 import HomeHeader from "../components/Home/HomeHeader/HomeHeader.component";
 import MenuHeader from "../components/MenuHeader/MenuHeader.component";
 import theme from "../styles/theme.style";
-// MOCKED
 
+// MOCKED
 import mockedMetrics from "../../mocks/saint/SAINT_Metrics-Response";
+import Loader from "../components/Loader/Loader.component";
 
 const Saint = ({ navigation }) => {
   const { state: marketState } = useContext(MarketContext);
@@ -17,21 +18,21 @@ const Saint = ({ navigation }) => {
   const [metrics, setMetrics] = useState({});
 
   useEffect(() => {
-    const fetch = async () => {
-      await requestMetrics();
+    const fetch = async (market) => {
+      await requestMetrics(market);
     };
 
-    fetch();
-  }, []);
+    fetch(marketState.selectedMarket);
+  }, [marketState.selectedMarket]);
 
-  requestMetrics = async () => {
-    const { marketId, processorId } = marketState.selectedMarket;
+  requestMetrics = async (market) => {
+    const { marketId, processorId } = market;
 
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
       setMetrics(mockedMetrics);
-    }, 2000);
+    }, 5000);
   };
 
   metricSections = (metrics) => {
@@ -50,18 +51,20 @@ const Saint = ({ navigation }) => {
 
   return (
     <View style={{ ...backgroundPrimary }}>
-      <MenuHeader
-        title={marketState.selectedMarket.marketName}
-        navigation={navigation}
-      />
+      <Loader play={isLoading}>
+        <MenuHeader
+          title={marketState.selectedMarket.marketName}
+          navigation={navigation}
+        />
 
-      <ScrollView
-        contentContainerStyle={{ paddingBottom: theme.SPACING.LARGE }}
-      >
-        <HomeHeader title="Saint" />
-        <MetricSquareScrollView metrics={metrics.keyMetrics} />
-        {metricSections(metrics.guestMetrics)}
-      </ScrollView>
+        <ScrollView
+          contentContainerStyle={{ paddingBottom: theme.SPACING.LARGE }}
+        >
+          <HomeHeader title="Saint" />
+          <MetricSquareScrollView metrics={metrics.keyMetrics} />
+          {metricSections(metrics.guestMetrics)}
+        </ScrollView>
+      </Loader>
     </View>
   );
 };

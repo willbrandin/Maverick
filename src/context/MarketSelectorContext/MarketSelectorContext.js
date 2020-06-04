@@ -31,7 +31,7 @@ const authReducer = (state, action) => {
       return { ...state, errorMessage: "" };
 
     case SET_LOADING:
-      return { ...state, isLoading: action.payload, errorMessage: "" };
+      return { ...state, isLoading: action.payload };
 
     case SET_EMPTY_MARKETS:
       return {
@@ -54,6 +54,7 @@ const fetchMarkets = (dispatch) => async () => {
   } catch (error) {
     console.log("Error Fetching Markets");
     console.log(error);
+    dispatch({ type: SET_LOADING, payload: false });
   }
 };
 

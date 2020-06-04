@@ -5,6 +5,7 @@ import { backgroundPrimary } from "../styles/common.style";
 
 // Context
 import { Context as AuthContext } from "../context/AuthContext/AuthContext";
+import Loader from "../components/Loader/Loader.component";
 
 const SignIn = ({ navigation }) => {
   const { state, signIn, clearErrors } = useContext(AuthContext);
@@ -26,12 +27,14 @@ const SignIn = ({ navigation }) => {
         ...backgroundPrimary,
       }}
     >
-      <PinEntry
-        onPinEntered={onPinEntered}
-        loading={state.isLoading}
-        error={state.errorMessage}
-        onPinCleared={clearErrors}
-      />
+      <Loader play={state.isLoading}>
+        <PinEntry
+          onPinEntered={onPinEntered}
+          loading={state.isLoading}
+          error={state.errorMessage}
+          onPinCleared={clearErrors}
+        />
+      </Loader>
     </View>
   );
 };

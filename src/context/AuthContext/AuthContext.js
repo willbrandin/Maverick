@@ -25,7 +25,7 @@ const authReducer = (state, action) => {
       return { token: null, isLoading: false, errorMessage: "" };
 
     case SET_LOADING:
-      return { ...state, isLoading: action.payload, errorMessage: "" };
+      return { ...state, isLoading: action.payload };
 
     default:
       return state;
@@ -36,6 +36,7 @@ const signIn = (dispatch) => async (pinNumber) => {
   let token;
   console.log(pinNumber);
 
+  dispatch({ type: SET_LOADING, payload: true });
   try {
     const response = await raidersApi.post("login/createtoken", {
       passcode: pinNumber,
@@ -45,8 +46,6 @@ const signIn = (dispatch) => async (pinNumber) => {
     AsyncStorage.setItem("AUTH_TOKEN_KEY", token);
     dispatch({ type: USER_SIGN_IN, payload: token });
   } catch (error) {
-    console.log("Error Signing In");
-    console.log(error);
     dispatch({ type: AUTH_ERROR, payload: "Invalid Pin" });
   }
 };

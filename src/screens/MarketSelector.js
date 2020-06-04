@@ -6,6 +6,7 @@ import Spacer from "../components/Spacer";
 import MarketListItem from "../components/ListItems/MarketListItem/MarketListItem.component";
 
 import { backgroundPrimary } from "../styles/common.style";
+import Loader from "../components/Loader/Loader.component";
 
 const MarketSelector = () => {
   const { state, fetchMarkets, selectedMarket } = useContext(MarketContext);
@@ -37,18 +38,20 @@ const MarketSelector = () => {
 
   return (
     <View style={{ ...backgroundPrimary }}>
-      <LargeHeader
-        title={"Select Market"}
-        subtitle={
-          "To see more details, select a market. You can always select another."
-        }
-      />
-      <Spacer />
-      <FlatList
-        keyExtractor={(market) => market.marketId.toString()}
-        data={state.availableMarkets}
-        renderItem={this.renderItem}
-      />
+      <Loader play={state.isLoading}>
+        <LargeHeader
+          title={"Select Market"}
+          subtitle={
+            "To see more details, select a market. You can always select another."
+          }
+        />
+        <Spacer />
+        <FlatList
+          keyExtractor={(market) => market.marketId.toString()}
+          data={state.availableMarkets}
+          renderItem={renderItem}
+        />
+      </Loader>
     </View>
   );
 };
