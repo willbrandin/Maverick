@@ -27,7 +27,9 @@ export default StyleSheet.create({
     fontWeight: "500",
   },
   tickerContainer: {
-    marginTop: theme.SPACING.MEDIUM,
+    position: "absolute",
+    left: theme.SPACING.MEDIUM,
+    bottom: theme.SPACING.MEDIUM,
     flexDirection: "row",
     alignItems: "center",
   },

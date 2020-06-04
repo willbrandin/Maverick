@@ -3,7 +3,27 @@ import { ScrollView, View } from "react-native";
 import MetricSquareTile from "../MetricSquareTile/MetricSquareTile.component";
 import theme from "../../../styles/theme.style";
 
-const MetricSquareScrollView = () => {
+const MetricSquareScrollView = ({ metrics }) => {
+  metricTile = (metric) => (
+    <MetricSquareTile
+      title={metric.title}
+      subtitle={metric.subtitle}
+      metricTitle={metric.metricTitle}
+      metricSubtitle={metric.metricSubtitle}
+      isPositive={metric.isPositive}
+      tickerTitle={metric.tickerTitle}
+      key={metric.title}
+    />
+  );
+
+  metricsListItems = (metrics) => {
+    if (metrics !== undefined) {
+      return metrics.map((metric) => {
+        return metricTile(metric);
+      });
+    }
+  };
+
   return (
     <View>
       <ScrollView
@@ -14,12 +34,7 @@ const MetricSquareScrollView = () => {
         snapToAlignment={"start"}
         showsHorizontalScrollIndicator={false}
       >
-        <MetricSquareTile />
-        <MetricSquareTile />
-        <MetricSquareTile />
-        <MetricSquareTile />
-        <MetricSquareTile />
-        <MetricSquareTile />
+        {metricsListItems(metrics)}
       </ScrollView>
     </View>
   );

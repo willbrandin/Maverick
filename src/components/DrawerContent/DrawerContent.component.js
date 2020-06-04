@@ -31,7 +31,7 @@ const DrawerContent = (props) => {
         <View style={styles.drawerContent}>
           <View style={styles.headerSection}>
             <View style={styles.userInfoContainer}>
-              <Image source={logo} />
+              <Image style={styles.logo} source={logo} />
               <View style={styles.userInfoNameContainer}>
                 <Text style={styles.title}>Will Brandin</Text>
                 <Text style={styles.caption}>Admin</Text>

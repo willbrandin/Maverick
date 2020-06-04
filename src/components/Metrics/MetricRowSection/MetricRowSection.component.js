@@ -3,13 +3,29 @@ import { Text, View } from "react-native";
 import MetricRow from "../MetricRow/MetricRow.component";
 import styles from "./MetricRowSection.component.style";
 
-const MetricRowSection = ({ title }) => {
+const MetricRowSection = ({ title, metrics }) => {
+  metricRow = (metric) => (
+    <MetricRow
+      title={metric.title}
+      subtitle={metric.subtitle}
+      metricValue={metric.metricValue}
+      isPositive={metric.isPositive}
+      key={metric.title}
+    />
+  );
+
+  metricsListItems = (metrics) => {
+    if (metrics !== undefined) {
+      return metrics.map((metric) => {
+        return metricRow(metric);
+      });
+    }
+  };
+
   return (
     <View>
       <Text style={styles.title}>{title}</Text>
-      <MetricRow />
-      <MetricRow />
-      <MetricRow />
+      {metricsListItems(metrics)}
     </View>
   );
 };

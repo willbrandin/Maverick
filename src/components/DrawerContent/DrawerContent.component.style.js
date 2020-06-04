@@ -25,6 +25,11 @@ export default StyleSheet.create({
     flexDirection: "row",
     marginTop: theme.SPACING.LARGE,
   },
+  logo: {
+    width: 48,
+    height: 48,
+    borderRadius: 48,
+  },
   title: {
     ...body,
   },
@@ -41,13 +46,15 @@ export default StyleSheet.create({
   },
   drawerSection: {
     marginTop: theme.SPACING.SMALL,
+    borderBottomColor: "rgba(148, 148, 158, 0.1)",
+    borderBottomWidth: 1,
   },
   drawerItem: {
     color: "#fff",
   },
   bottomDrawerSection: {
     marginBottom: theme.SPACING.SMALL,
-    borderTopColor: theme.TERTIARY_TEXT_COLOR,
+    borderTopColor: "rgba(148, 148, 158, 0.1)",
     borderTopWidth: 1,
   },
   footnote: {

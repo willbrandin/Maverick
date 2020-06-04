@@ -1,20 +1,35 @@
 import React from "react";
 import { Text, View, Image } from "react-native";
-import Spacer from "../../Spacer";
 import styles from "./MetricSquareTile.component.style";
 import Ticker from "../../Ticker/Ticker.component";
 
-const MetricSquareTile = () => {
+const MetricSquareTile = ({
+  title,
+  subtitle,
+  metricTitle,
+  metricSubtitle,
+  isPositive,
+  tickerTitle,
+}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Racked On Time</Text>
-      <Text style={styles.subtitle}>Last 7 Days</Text>
-      <Text style={styles.metricLargeTitle}>98%</Text>
-      <Text style={styles.metricSubtitle}>Got Racked On Time</Text>
-      {/* <Spacer /> */}
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.subtitle}>{subtitle}</Text>
+      <Text
+        adjustsFontSizeToFit
+        minimumFontScale={0.8}
+        numberOfLines={1}
+        style={{
+          ...styles.metricLargeTitle,
+          fontSize: metricTitle.length > 4 ? 38 : 48,
+        }}
+      >
+        {metricTitle}
+      </Text>
+      <Text style={styles.metricSubtitle}>{metricSubtitle}</Text>
       <View style={styles.tickerContainer}>
-        <Ticker />
-        <Text style={styles.tickerTitle}>Down From Yesterday</Text>
+        <Ticker positive={isPositive} />
+        <Text style={styles.tickerTitle}>{tickerTitle}</Text>
       </View>
     </View>
   );
