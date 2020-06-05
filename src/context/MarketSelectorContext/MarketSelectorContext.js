@@ -9,7 +9,9 @@ import {
   SET_EMPTY_MARKETS,
 } from "./MarketSelectorTypes";
 
-const authReducer = (state, action) => {
+import * as RootNavigation from "../../utility/RootNavigation";
+
+const marketReducer = (state, action) => {
   switch (action.type) {
     case FETCH_MARKETS:
       return {
@@ -50,6 +52,7 @@ const fetchMarkets = (dispatch) => async () => {
 
   try {
     const response = await raidersApi.get("account/supportedmarkets");
+
     dispatch({ type: FETCH_MARKETS, payload: response.data });
   } catch (error) {
     console.log("Error Fetching Markets");
@@ -63,6 +66,7 @@ const selectedMarket = (dispatch) => (market) => {
 
   setTimeout(() => {
     dispatch({ type: MARKET_SELECTED, payload: market });
+    RootNavigation.reset("Home");
   }, 0);
 };
 
@@ -75,7 +79,7 @@ const setEmptyMarkets = (dispatch) => () => {
 };
 
 export const { Provider, Context } = createDataContext(
-  authReducer,
+  marketReducer,
   { fetchMarkets, selectedMarket, clearErrors, setEmptyMarkets },
   {
     availableMarkets: [],

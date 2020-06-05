@@ -10,6 +10,8 @@ import {
   SET_LOADING,
 } from "./AuthTypes";
 
+import * as RootNavigation from "../../utility/RootNavigation";
+
 const authReducer = (state, action) => {
   switch (action.type) {
     case AUTH_ERROR:
@@ -45,6 +47,7 @@ const signIn = (dispatch) => async (pinNumber) => {
     token = response.data.access_token;
     AsyncStorage.setItem("AUTH_TOKEN_KEY", token);
     dispatch({ type: USER_SIGN_IN, payload: token });
+    RootNavigation.reset("MarketSelector");
   } catch (error) {
     dispatch({ type: AUTH_ERROR, payload: "Invalid Pin" });
   }

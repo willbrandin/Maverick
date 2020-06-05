@@ -12,7 +12,6 @@ const Loader = ({ play, children }) => {
         alignItems: "center",
         height: 100,
         justifyContent: "center",
-        // backgroundColor: "rgba(0, 0, 0, 1)",
       }}
     >
       <View
@@ -25,11 +24,6 @@ const Loader = ({ play, children }) => {
       >
         <View
           style={{
-            // alignItems: "center",
-            // justifyContent: "center",
-            // position: "absolute",
-            // left: 0,
-            // top: 0,
             width: "100%",
             height: "100%",
           }}
