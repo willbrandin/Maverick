@@ -1,6 +1,6 @@
 # Maverick
 
-# Initial
+## Initial
 
 Make sure you have NodeJS installed
 In the root run `npm install` and `yarn install`
