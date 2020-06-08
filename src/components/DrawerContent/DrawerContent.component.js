@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { DrawerItem, DrawerContentScrollView } from "@react-navigation/drawer";
 import { SafeAreaView, View, Text, Image } from "react-native";
 import styles from "./DrawerContent.component.style";
@@ -13,18 +13,30 @@ import { Context as MarketContext } from "../../context/MarketSelectorContext/Ma
 import { Context as AuthContext } from "../../context/AuthContext/AuthContext";
 
 import useSignOut from "../../hooks/useSignOut";
+import SignOutModal from "../Modal/SignOut/SignOutModal.component";
 
 const DrawerContent = (props) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   const { state: authState } = useContext(AuthContext);
   const { state: marketState } = useContext(MarketContext);
   const [performSignOut] = useSignOut();
 
   const onSignOutTapped = async () => {
-    performSignOut();
+    props.navigation.closeDrawer();
+    setModalVisible(!modalVisible);
   };
 
   return (
     <SafeAreaView style={styles.drawerContainer}>
+      <SignOutModal
+        modalVisible={modalVisible}
+        onSignOutTapped={performSignOut}
+        onCancel={() => {
+          setModalVisible(false);
+        }}
+      />
+
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
           <View style={styles.headerSection}>
