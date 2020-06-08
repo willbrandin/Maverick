@@ -4,7 +4,7 @@ import MetricRow from "../MetricRow/MetricRow.component";
 import styles from "./MetricRowSection.component.style";
 
 const MetricRowSection = ({ title, metrics }) => {
-  metricRow = (metric) => (
+  const metricRow = (metric) => (
     <MetricRow
       title={metric.title}
       subtitle={metric.subtitle}
@@ -14,7 +14,7 @@ const MetricRowSection = ({ title, metrics }) => {
     />
   );
 
-  metricsListItems = (metrics) => {
+  const metricsListItems = (metrics) => {
     if (metrics !== undefined) {
       return metrics.map((metric) => {
         return metricRow(metric);

@@ -3,7 +3,7 @@ import { AsyncStorage } from "react-native";
 import { RAIDERS_API_URL } from "react-native-dotenv";
 
 const instance = axios.create({
-  baseURL: RAIDERS_API_URL,
+  baseURL: "https://tide-cleaners-maverick.herokuapp.com/api/v1.0/",
 });
 
 instance.interceptors.request.use(

@@ -19,7 +19,7 @@ const MarketSwitcher = ({ navigation }) => {
     fetch();
   }, []);
 
-  renderItem = ({ item: market }) => (
+  const renderItem = ({ item: market }) => (
     <View
       style={{
         marginHorizontal: 16,
@@ -29,7 +29,6 @@ const MarketSwitcher = ({ navigation }) => {
       <TouchableOpacity
         onPress={() => {
           selectedMarket(market);
-          navigation.navigate("Saint");
         }}
       >
         <MarketListItem market={market} />
@@ -43,7 +42,7 @@ const MarketSwitcher = ({ navigation }) => {
       <FlatList
         keyExtractor={(market) => market.marketId.toString()}
         data={state.availableMarkets}
-        renderItem={this.renderItem}
+        renderItem={renderItem}
       />
     </View>
   );

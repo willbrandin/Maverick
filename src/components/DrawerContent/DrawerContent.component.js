@@ -12,17 +12,16 @@ const logo = require("../../../assets/img/logo/Logo.png");
 import { Context as MarketContext } from "../../context/MarketSelectorContext/MarketSelectorContext";
 import { Context as AuthContext } from "../../context/AuthContext/AuthContext";
 
-import { NavigationActions } from "react-navigation";
+import * as RootNavigation from "../../utility/RootNavigation";
 
 const DrawerContent = (props) => {
   const { state: marketState, setEmptyMarkets } = useContext(MarketContext);
   const { signOut } = useContext(AuthContext);
 
-  onSignOutTapped = async () => {
-    props.navigation.navigate("Saint");
-
-    await signOut();
-    setEmptyMarkets();
+  const onSignOutTapped = async () => {
+    RootNavigation.reset("Auth");
+    // await signOut();
+    // setEmptyMarkets();
   };
 
   return (

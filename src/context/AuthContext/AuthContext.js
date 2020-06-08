@@ -49,6 +49,8 @@ const signIn = (dispatch) => async (pinNumber) => {
     dispatch({ type: USER_SIGN_IN, payload: token });
     RootNavigation.reset("MarketSelector");
   } catch (error) {
+    console.log(error);
+
     dispatch({ type: AUTH_ERROR, payload: "Invalid Pin" });
   }
 };

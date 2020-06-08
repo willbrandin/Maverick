@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Platform } from "react-native";
 import LottieView from "lottie-react-native";
 
 const animation = require("../../../assets/img/loader/laundry-animation.json");
@@ -30,7 +30,7 @@ const Loader = ({ play, children }) => {
         >
           {children}
         </View>
-        {play ? (
+        {play && Platform.OS !== "web" ? (
           <LottieView
             style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
             source={animation}

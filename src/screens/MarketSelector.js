@@ -19,7 +19,7 @@ const MarketSelector = () => {
     fetch();
   }, []);
 
-  renderItem = ({ item: market }) => (
+  const renderItem = ({ item: market }) => (
     <View
       style={{
         marginHorizontal: 16,

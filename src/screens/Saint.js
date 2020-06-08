@@ -8,9 +8,8 @@ import HomeHeader from "../components/Home/HomeHeader/HomeHeader.component";
 import MenuHeader from "../components/MenuHeader/MenuHeader.component";
 import theme from "../styles/theme.style";
 
-// MOCKED
-import mockedMetrics from "../../mocks/saint/SAINT_Metrics-Response";
 import Loader from "../components/Loader/Loader.component";
+import raidersApi from "../api/raidersApi";
 
 const Saint = ({ navigation }) => {
   const { state: marketState } = useContext(MarketContext);
@@ -25,17 +24,21 @@ const Saint = ({ navigation }) => {
     fetch(marketState.selectedMarket);
   }, [marketState.selectedMarket]);
 
-  requestMetrics = async (market) => {
+  const requestMetrics = async (market) => {
     const { marketId, processorId } = market;
-
     setIsLoading(true);
-    setTimeout(() => {
+
+    try {
+      const response = await raidersApi.get("/data/saint");
       setIsLoading(false);
-      setMetrics(mockedMetrics);
-    }, 5000);
+      setMetrics(response.data);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
   };
 
-  metricSections = (metrics) => {
+  const metricSections = (metrics) => {
     if (metrics !== undefined) {
       return metrics.map((metric) => {
         return (

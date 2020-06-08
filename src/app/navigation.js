@@ -68,10 +68,12 @@ const AppNavigation = () => (
   </AppStack.Navigator>
 );
 
-export default Navigation = () => {
+const Navigation = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <AppNavigation />
     </NavigationContainer>
   );
 };
+
+export default Navigation;

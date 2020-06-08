@@ -4,7 +4,7 @@ import MetricSquareTile from "../MetricSquareTile/MetricSquareTile.component";
 import theme from "../../../styles/theme.style";
 
 const MetricSquareScrollView = ({ metrics }) => {
-  metricTile = (metric) => (
+  const metricTile = (metric) => (
     <MetricSquareTile
       title={metric.title}
       subtitle={metric.subtitle}
@@ -16,7 +16,7 @@ const MetricSquareScrollView = ({ metrics }) => {
     />
   );
 
-  metricsListItems = (metrics) => {
+  const metricsListItems = (metrics) => {
     if (metrics !== undefined) {
       return metrics.map((metric) => {
         return metricTile(metric);

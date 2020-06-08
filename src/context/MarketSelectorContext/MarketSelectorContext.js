@@ -52,6 +52,7 @@ const fetchMarkets = (dispatch) => async () => {
 
   try {
     const response = await raidersApi.get("account/supportedmarkets");
+    console.log(response.data);
 
     dispatch({ type: FETCH_MARKETS, payload: response.data });
   } catch (error) {
