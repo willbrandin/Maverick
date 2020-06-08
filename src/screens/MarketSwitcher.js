@@ -29,6 +29,7 @@ const MarketSwitcher = ({ navigation }) => {
       <TouchableOpacity
         onPress={() => {
           selectedMarket(market);
+          navigation.navigate("Saint");
         }}
       >
         <MarketListItem market={market} />

@@ -37,8 +37,9 @@ const marketReducer = (state, action) => {
 
     case SET_EMPTY_MARKETS:
       return {
+        ...state,
         selectedMarket: null,
-        availableMarkets: null,
+
         isLoading: false,
         errorMessage: "",
       };
@@ -63,20 +64,23 @@ const fetchMarkets = (dispatch) => async () => {
 };
 
 const selectedMarket = (dispatch) => (market) => {
-  dispatch({ type: SET_LOADING, payload: true });
-
-  setTimeout(() => {
+  try {
     dispatch({ type: MARKET_SELECTED, payload: market });
-    RootNavigation.reset("Home");
-  }, 0);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const clearErrors = (dispatch) => () => {
   dispatch({ type: CLEAR_ERRORS });
 };
 
-const setEmptyMarkets = (dispatch) => () => {
-  dispatch({ type: SET_EMPTY_MARKETS });
+const setEmptyMarkets = (dispatch) => async () => {
+  try {
+    await dispatch({ type: SET_EMPTY_MARKETS });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const { Provider, Context } = createDataContext(

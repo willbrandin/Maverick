@@ -12,16 +12,15 @@ const logo = require("../../../assets/img/logo/Logo.png");
 import { Context as MarketContext } from "../../context/MarketSelectorContext/MarketSelectorContext";
 import { Context as AuthContext } from "../../context/AuthContext/AuthContext";
 
-import * as RootNavigation from "../../utility/RootNavigation";
+import useSignOut from "../../hooks/useSignOut";
 
 const DrawerContent = (props) => {
-  const { state: marketState, setEmptyMarkets } = useContext(MarketContext);
-  const { signOut } = useContext(AuthContext);
+  const { state: authState } = useContext(AuthContext);
+  const { state: marketState } = useContext(MarketContext);
+  const [performSignOut] = useSignOut();
 
   const onSignOutTapped = async () => {
-    RootNavigation.reset("Auth");
-    // await signOut();
-    // setEmptyMarkets();
+    performSignOut();
   };
 
   return (
@@ -32,8 +31,8 @@ const DrawerContent = (props) => {
             <View style={styles.userInfoContainer}>
               <Image style={styles.logo} source={logo} />
               <View style={styles.userInfoNameContainer}>
-                <Text style={styles.title}>Will Brandin</Text>
-                <Text style={styles.caption}>Admin</Text>
+                <Text style={styles.title}>{authState.accountName}</Text>
+                <Text style={styles.caption}>{authState.accountSub}</Text>
               </View>
             </View>
 

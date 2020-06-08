@@ -28,6 +28,10 @@ if (Platform.OS !== "ios") {
   StatusBar.setBackgroundColor(theme.PRIMARY_BACKGROUND_COLOR);
 }
 
+// Context
+
+import { Context as MarketContext } from "../context/MarketSelectorContext/MarketSelectorContext";
+
 // Navigation
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => (
@@ -62,6 +66,7 @@ const AppNavigation = () => (
     screenOptions={{
       headerShown: false,
     }}
+    initialRouteName="Auth"
   >
     <AppStack.Screen name={"Auth"} component={AuthStackScreen} />
     <AppStack.Screen name={"Home"} component={DrawerStack} />
@@ -69,9 +74,13 @@ const AppNavigation = () => (
 );
 
 const Navigation = () => {
+  const {
+    state: { selectedMarket },
+  } = useContext(MarketContext);
+
   return (
     <NavigationContainer ref={navigationRef}>
-      <AppNavigation />
+      {selectedMarket ? <DrawerStack /> : <AuthStackScreen />}
     </NavigationContainer>
   );
 };

@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import theme from "../../styles/theme.style";
 import { title, body, caption } from "../../styles/common.style";
 
@@ -12,6 +12,7 @@ export default StyleSheet.create({
   },
   headerSection: {
     paddingLeft: theme.SPACING.MEDIUM,
+    paddingTop: Platform.OS === "ios" ? 0 : theme.SPACING.LARGE,
   },
   userInfoContainer: {
     flexDirection: "row",

@@ -2,6 +2,8 @@ import createDataContext from "../createDataContext";
 import raidersApi from "../../api/raidersApi";
 import { AsyncStorage } from "react-native";
 
+import jwtDecode from "jwt-decode";
+
 import {
   AUTH_ERROR,
   USER_SIGN_IN,
@@ -18,13 +20,25 @@ const authReducer = (state, action) => {
       return { ...state, isLoading: false, errorMessage: action.payload };
 
     case USER_SIGN_IN:
-      return { token: action.payload, isLoading: false, errorMessage: "" };
+      return {
+        token: action.payload.token,
+        accountName: action.payload.accountName,
+        accountSub: action.payload.accountSub,
+        isLoading: false,
+        errorMessage: "",
+      };
 
     case CLEAR_ERRORS:
       return { ...state, errorMessage: "" };
 
     case SIGN_OUT:
-      return { token: null, isLoading: false, errorMessage: "" };
+      return {
+        token: null,
+        accountName: null,
+        accountSub: null,
+        isLoading: false,
+        errorMessage: "",
+      };
 
     case SET_LOADING:
       return { ...state, isLoading: action.payload };
@@ -45,8 +59,17 @@ const signIn = (dispatch) => async (pinNumber) => {
     });
 
     token = response.data.access_token;
+    const decoded = jwtDecode(token);
+
     AsyncStorage.setItem("AUTH_TOKEN_KEY", token);
-    dispatch({ type: USER_SIGN_IN, payload: token });
+    dispatch({
+      type: USER_SIGN_IN,
+      payload: {
+        token,
+        accountName: decoded.given_name,
+        accountSub: decoded.sub,
+      },
+    });
     RootNavigation.reset("MarketSelector");
   } catch (error) {
     console.log(error);
@@ -72,5 +95,11 @@ const signOut = (dispatch) => async () => {
 export const { Provider, Context } = createDataContext(
   authReducer,
   { signIn, signOut, clearErrors },
-  { token: null, isLoading: false, errorMessage: "" }
+  {
+    token: null,
+    accountName: null,
+    accountSub: null,
+    isLoading: false,
+    errorMessage: "",
+  }
 );
