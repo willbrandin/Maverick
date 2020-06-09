@@ -12,7 +12,6 @@ const logo = require("../../../assets/img/logo/Logo.png");
 import { Context as MarketContext } from "../../context/MarketSelectorContext/MarketSelectorContext";
 import { Context as AuthContext } from "../../context/AuthContext/AuthContext";
 
-import useSignOut from "../../hooks/useSignOut";
 import SignOutModal from "../Modal/SignOut/SignOutModal.component";
 
 const DrawerContent = (props) => {
@@ -20,7 +19,6 @@ const DrawerContent = (props) => {
 
   const { state: authState } = useContext(AuthContext);
   const { state: marketState } = useContext(MarketContext);
-  const [performSignOut] = useSignOut();
 
   const onSignOutTapped = async () => {
     props.navigation.closeDrawer();
@@ -31,7 +29,6 @@ const DrawerContent = (props) => {
     <SafeAreaView style={styles.drawerContainer}>
       <SignOutModal
         modalVisible={modalVisible}
-        onSignOutTapped={performSignOut}
         onCancel={() => {
           setModalVisible(false);
         }}

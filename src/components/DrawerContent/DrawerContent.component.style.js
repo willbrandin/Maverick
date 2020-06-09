@@ -12,7 +12,7 @@ export default StyleSheet.create({
   },
   headerSection: {
     paddingLeft: theme.SPACING.MEDIUM,
-    paddingTop: Platform.OS === "ios" ? 0 : theme.SPACING.LARGE,
+    paddingTop: Platform.OS === "android" ? theme.SPACING.SMALL : 0,
   },
   userInfoContainer: {
     flexDirection: "row",
