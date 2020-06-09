@@ -13,7 +13,6 @@ export default StyleSheet.create({
   error: {
     ...body,
     color: theme.DESTRUCTIVE_COLOR,
-    fontWeight: theme.FONT_WEIGHT_MEDIUM,
   },
   container: {
     flex: 1,

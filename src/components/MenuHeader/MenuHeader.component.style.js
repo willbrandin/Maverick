@@ -16,7 +16,6 @@ export default StyleSheet.create({
   titleContainer: {},
   title: {
     ...headline,
-    fontWeight: "bold",
     alignContent: "center",
   },
   icon: {

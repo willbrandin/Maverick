@@ -5,7 +5,7 @@ import { caption, body, largeTitle } from "../../../styles/common.style";
 export default StyleSheet.create({
   title: {
     ...caption,
-    fontWeight: "bold",
+    fontFamily: theme.GOTHAM_BOLD,
     marginHorizontal: theme.SPACING.MEDIUM,
     paddingTop: theme.SPACING.MEDIUM,
   },

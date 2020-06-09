@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import theme from "../../../styles/theme.style";
+import { title } from "../../../styles/common.style";
 
 export default StyleSheet.create({
   container: {
@@ -24,13 +25,15 @@ export default StyleSheet.create({
     borderRadius: 50,
   },
   buttonTitle: {
-    fontSize: theme.FONT_SIZE_TITLE,
-    fontWeight: theme.FONT_WEIGHT_HEAVY,
+    ...title,
     color: theme.SECONDARY_TEXT_COLOR,
+    textAlign: "center",
+    textAlignVertical: "center",
   },
   clearTitle: {
     fontSize: theme.FONT_SIZE_BODY,
-    fontWeight: theme.FONT_WEIGHT_HEAVY,
     color: theme.SECONDARY_TEXT_COLOR,
+    textAlign: "center",
+    fontFamily: theme.GOTHAM_BOLD,
   },
 });

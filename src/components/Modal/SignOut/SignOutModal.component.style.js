@@ -28,7 +28,6 @@ export default StyleSheet.create({
   },
   title: {
     ...headline,
-    fontWeight: "bold",
     textAlign: "center",
   },
 });

@@ -26,14 +26,12 @@ export default StyleSheet.create({
   titleSecondary: {
     ...headline,
     color: theme.PRIMARY_BACKGROUND_COLOR,
-    fontWeight: "bold",
     alignContent: "center",
     textAlign: "center",
   },
   titlePrimary: {
     ...headline,
     color: "#FFF",
-    fontWeight: "bold",
     alignContent: "center",
     textAlign: "center",
   },

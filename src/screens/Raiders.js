@@ -14,7 +14,7 @@ const Raiders = ({ navigation }) => {
       <MenuHeader navigation={navigation} />
 
       <ScrollView>
-        <HomeHeader title="Raiders" subtitle="Last Updated Yesterday" />
+        <HomeHeader title="Raiders" subtitle="Last Updated 06/07/2020" />
       </ScrollView>
     </View>
   );

@@ -14,7 +14,7 @@ const RickyBobby = ({ navigation }) => {
       <MenuHeader navigation={navigation} />
 
       <ScrollView>
-        <HomeHeader title="Ricky Bobby" subtitle="Last Updated Yesterday" />
+        <HomeHeader title="Ricky Bobby" subtitle="Last Updated 06/07/2020" />
       </ScrollView>
     </View>
   );

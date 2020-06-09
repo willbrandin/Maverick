@@ -13,7 +13,8 @@ export default StyleSheet.create({
   },
   title: {
     ...body,
-    fontWeight: "bold",
+    fontFamily: theme.GOTHAM_BOLD,
+    color: theme.TERTIARY_TEXT_COLOR,
   },
   subtitle: {
     ...caption,
@@ -24,7 +25,6 @@ export default StyleSheet.create({
   },
   metricSubtitle: {
     ...caption,
-    fontWeight: "500",
   },
   tickerContainer: {
     position: "absolute",
