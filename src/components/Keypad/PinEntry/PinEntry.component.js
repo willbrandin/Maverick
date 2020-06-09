@@ -43,8 +43,8 @@ const PinEntry = ({ onPinEntered, loading, error, onPinCleared }) => {
       pointerEvents={loading ? "none" : "auto"} // Logic to be used for when loading API
     >
       <Spacer />
-      <Text style={styles.header}>Welcome back!</Text>
-      <Text style={styles.subheader}>Sign in to continue</Text>
+      <Text style={styles.header}>Welcome Back!</Text>
+      <Text style={styles.subheader}>Sign In to Continue</Text>
       <Spacer />
 
       <View style={styles.buttonRow}>

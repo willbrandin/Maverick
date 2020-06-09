@@ -3,6 +3,8 @@ import { Text, View } from "react-native";
 import MetricRow from "../MetricRow/MetricRow.component";
 import styles from "./MetricRowSection.component.style";
 
+// TODO: - https://docs.expo.io/versions/latest/sdk/device/#enums
+// Use Device.Tablet to set grid style for list items.
 const MetricRowSection = ({ title, metrics }) => {
   const metricRow = (metric) => (
     <MetricRow

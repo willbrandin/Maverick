@@ -16,6 +16,7 @@ export default StyleSheet.create({
     fontWeight: theme.FONT_WEIGHT_MEDIUM,
   },
   container: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
