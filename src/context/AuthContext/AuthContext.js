@@ -70,7 +70,7 @@ const signIn = (dispatch) => async (pinNumber) => {
         accountSub: decoded.sub,
       },
     });
-    RootNavigation.reset("MarketSelector");
+    RootNavigation.reset("Home");
   } catch (error) {
     console.log(error);
 
@@ -84,6 +84,7 @@ const clearErrors = (dispatch) => () => {
 
 const signOut = (dispatch) => async () => {
   try {
+    RootNavigation.reset("Auth");
     await AsyncStorage.removeItem("AUTH_TOKEN_KEY");
     dispatch({ type: SIGN_OUT });
   } catch (error) {

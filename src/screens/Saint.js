@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { View, ScrollView } from "react-native";
-import { Context as MarketContext } from "../context/MarketSelectorContext/MarketSelectorContext";
 import MetricRowSection from "../components/Metrics/MetricRowSection/MetricRowSection.component";
 import MetricSquareScrollView from "../components/Metrics/MetricSquareScrollView/MetricSquareScrollView.component";
 import { backgroundPrimary } from "../styles/common.style";
@@ -12,20 +11,18 @@ import Loader from "../components/Loader/Loader.component";
 import raidersApi from "../api/raidersApi";
 
 const Saint = ({ navigation }) => {
-  const { state: marketState } = useContext(MarketContext);
   const [isLoading, setIsLoading] = useState(false);
   const [metrics, setMetrics] = useState({});
 
   useEffect(() => {
-    const fetch = async (market) => {
-      await requestMetrics(market);
+    const fetch = async () => {
+      await requestMetrics();
     };
 
-    fetch(marketState.selectedMarket);
-  }, [marketState.selectedMarket]);
+    fetch();
+  }, []);
 
-  const requestMetrics = async (market) => {
-    const { marketId, processorId } = market;
+  const requestMetrics = async () => {
     setIsLoading(true);
 
     try {
@@ -55,15 +52,12 @@ const Saint = ({ navigation }) => {
   return (
     <View style={{ ...backgroundPrimary }}>
       <Loader play={isLoading}>
-        <MenuHeader
-          title={marketState.selectedMarket.marketName}
-          navigation={navigation}
-        />
+        <MenuHeader navigation={navigation} />
 
         <ScrollView
           contentContainerStyle={{ paddingBottom: theme.SPACING.LARGE }}
         >
-          <HomeHeader title="Saint" />
+          <HomeHeader title="Saint" subtitle="Last Updated 06/07/2020" />
           <MetricSquareScrollView metrics={metrics.keyMetrics} />
           {metricSections(metrics.guestMetrics)}
         </ScrollView>

@@ -14,8 +14,7 @@ import DrawerContent from "../components/DrawerContent/DrawerContent.component";
 // Screens
 import SignIn from "../screens/SignIn";
 import Saint from "../screens/Saint";
-import MarketSelector from "../screens/MarketSelector";
-import MarketSwitcher from "../screens/MarketSwitcher";
+
 import Raiders from "../screens/Raiders";
 import RickyBobby from "../screens/RickyBobby";
 import Spiderman from "../screens/Spiderman";
@@ -28,10 +27,6 @@ if (Platform.OS !== "ios") {
   StatusBar.setBackgroundColor(theme.PRIMARY_BACKGROUND_COLOR);
 }
 
-// Context
-
-import { Context as MarketContext } from "../context/MarketSelectorContext/MarketSelectorContext";
-
 // Navigation
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => (
@@ -41,7 +36,6 @@ const AuthStackScreen = () => (
     }}
   >
     <AuthStack.Screen name="SignIn" component={SignIn} />
-    <AuthStack.Screen name="MarketSelector" component={MarketSelector} />
   </AuthStack.Navigator>
 );
 
@@ -56,7 +50,6 @@ const DrawerStack = () => (
     <Drawer.Screen name={"RickyBobby"} component={RickyBobby} />
     <Drawer.Screen name={"TonyStarch"} component={TonyStarch} />
     <Drawer.Screen name={"Spiderman"} component={Spiderman} />
-    <Drawer.Screen name={"MarketSwitcher"} component={MarketSwitcher} />
   </Drawer.Navigator>
 );
 
@@ -74,13 +67,9 @@ const AppNavigation = () => (
 );
 
 const Navigation = () => {
-  const {
-    state: { selectedMarket },
-  } = useContext(MarketContext);
-
   return (
     <NavigationContainer ref={navigationRef}>
-      {selectedMarket ? <DrawerStack /> : <AuthStackScreen />}
+      <AppNavigation />
     </NavigationContainer>
   );
 };

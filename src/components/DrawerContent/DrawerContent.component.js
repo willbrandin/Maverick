@@ -9,7 +9,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 const logo = require("../../../assets/img/logo/Logo.png");
 
 // Context
-import { Context as MarketContext } from "../../context/MarketSelectorContext/MarketSelectorContext";
 import { Context as AuthContext } from "../../context/AuthContext/AuthContext";
 
 import SignOutModal from "../Modal/SignOut/SignOutModal.component";
@@ -18,7 +17,6 @@ const DrawerContent = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const { state: authState } = useContext(AuthContext);
-  const { state: marketState } = useContext(MarketContext);
 
   const onSignOutTapped = async () => {
     props.navigation.closeDrawer();
@@ -46,9 +44,7 @@ const DrawerContent = (props) => {
             </View>
 
             <View style={styles.marketNameContainer}>
-              <Text style={styles.marketTitle}>
-                {marketState.selectedMarket.marketName}
-              </Text>
+              <Text style={styles.marketTitle}>Tide Cleaners</Text>
             </View>
           </View>
 
@@ -129,16 +125,6 @@ const DrawerContent = (props) => {
         </View>
       </DrawerContentScrollView>
       <Drawer.Section style={styles.bottomDrawerSection}>
-        <DrawerItem
-          icon={({ color, size }) => (
-            <MaterialIcons name="store" size={size} color={color} />
-          )}
-          label="Switch Market"
-          inactiveTintColor="#94949e"
-          onPress={() => {
-            props.navigation.navigate("MarketSwitcher");
-          }}
-        />
         <DrawerItem
           icon={({ color, size }) => (
             <MaterialIcons name="exit-to-app" size={size} color={color} />
