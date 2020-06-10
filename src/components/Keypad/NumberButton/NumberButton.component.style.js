@@ -27,7 +27,6 @@ export default StyleSheet.create({
   buttonTitle: {
     ...title,
     color: theme.SECONDARY_TEXT_COLOR,
-    textAlign: "center",
     textAlignVertical: "center",
   },
   clearTitle: {

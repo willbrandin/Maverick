@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Platform } from "react-native";
 import MetricRow from "../MetricRow/MetricRow.component";
 import styles from "./MetricRowSection.component.style";
 
@@ -12,6 +12,7 @@ const MetricRowSection = ({ title, metrics }) => {
       subtitle={metric.subtitle}
       metricValue={metric.metricValue}
       isPositive={metric.isPositive}
+      metricSubtitle="Up from Last Week"
       key={metric.title}
     />
   );
@@ -27,7 +28,9 @@ const MetricRowSection = ({ title, metrics }) => {
   return (
     <View>
       <Text style={styles.title}>{title}</Text>
-      {metricsListItems(metrics)}
+      <View style={Platform.isPad ? styles.tabletStyle : null}>
+        {metricsListItems(metrics)}
+      </View>
     </View>
   );
 };

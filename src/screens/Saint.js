@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, ScrollView } from "react-native";
 import MetricRowSection from "../components/Metrics/MetricRowSection/MetricRowSection.component";
 import MetricSquareScrollView from "../components/Metrics/MetricSquareScrollView/MetricSquareScrollView.component";
@@ -59,6 +59,7 @@ const Saint = ({ navigation }) => {
         >
           <HomeHeader title="Saint" subtitle="Last Updated 06/07/2020" />
           <MetricSquareScrollView metrics={metrics.keyMetrics} />
+
           {metricSections(metrics.guestMetrics)}
         </ScrollView>
       </Loader>

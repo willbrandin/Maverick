@@ -9,4 +9,10 @@ export default StyleSheet.create({
     marginHorizontal: theme.SPACING.MEDIUM,
     paddingTop: theme.SPACING.MEDIUM,
   },
+  tabletStyle: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    padding: theme.SPACING.SMALL,
+  },
 });
