@@ -53,8 +53,10 @@ const Saint = ({ navigation }) => {
   };
 
   const lastUpdatedSubtitle = (date) => {
-    const formattedDate = formatDate(date);
-    return `Last Updated ${formattedDate}`;
+    if (date) {
+      const formattedDate = formatDate(date);
+      return `Last Updated ${formattedDate}`;
+    }
   };
 
   return (
