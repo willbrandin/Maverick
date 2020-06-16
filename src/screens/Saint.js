@@ -10,6 +10,8 @@ import theme from "../styles/theme.style";
 import Loader from "../components/Loader/Loader.component";
 import raidersApi from "../api/raidersApi";
 
+import formatDate from "../utility/Date/Date+SlashFormat";
+
 const Saint = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [metrics, setMetrics] = useState({});
@@ -29,6 +31,7 @@ const Saint = ({ navigation }) => {
       const response = await raidersApi.get("/data/saint");
       setIsLoading(false);
       setMetrics(response.data);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -49,6 +52,11 @@ const Saint = ({ navigation }) => {
     }
   };
 
+  const lastUpdatedSubtitle = (date) => {
+    const formattedDate = formatDate(date);
+    return `Last Updated ${formattedDate}`;
+  };
+
   return (
     <View style={{ ...backgroundPrimary }}>
       <Loader play={isLoading}>
@@ -57,7 +65,10 @@ const Saint = ({ navigation }) => {
         <ScrollView
           contentContainerStyle={{ paddingBottom: theme.SPACING.LARGE }}
         >
-          <HomeHeader title="Saint" subtitle="Last Updated 06/07/2020" />
+          <HomeHeader
+            title="Saint"
+            subtitle={lastUpdatedSubtitle(metrics.lastUpdatedDateUtc)}
+          />
           <MetricSquareScrollView metrics={metrics.keyMetrics} />
 
           {metricSections(metrics.guestMetrics)}

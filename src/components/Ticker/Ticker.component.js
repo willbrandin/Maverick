@@ -2,15 +2,17 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import styles from "./Ticker.component.style";
 
-const positiveTickerImg = require("../../../assets/img/tickerGreen/TickerGreen.png");
-const negativeTickerImg = require("../../../assets/img/tickerRed/TickerRed.png");
+const tickerImg = require("../../../assets/img/tickerRed/TickerRed.png");
 
-const Ticker = ({ positive }) => {
+const Ticker = ({ increase, arrowColor }) => {
   return (
     <View style={styles.container}>
       <Image
-        style={positive ? styles.positiveStyle : styles.negativeStyle}
-        source={positive ? positiveTickerImg : negativeTickerImg}
+        style={{
+          transform: increase ? [] : [{ rotate: "180deg" }],
+          tintColor: arrowColor !== undefined ? arrowColor : "#FFF",
+        }}
+        source={tickerImg}
       />
     </View>
   );

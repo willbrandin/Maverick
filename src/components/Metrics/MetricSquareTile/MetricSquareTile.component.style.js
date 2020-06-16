@@ -35,9 +35,6 @@ export default StyleSheet.create({
   },
   tickerTitle: {
     ...caption,
-  },
-  tickerImg: {
-    transform: [{ rotate: "180deg" }],
-    marginRight: 8,
+    marginLeft: theme.SPACING.SMALL / 2,
   },
 });

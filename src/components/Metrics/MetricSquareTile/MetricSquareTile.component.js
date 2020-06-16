@@ -8,8 +8,9 @@ const MetricSquareTile = ({
   subtitle,
   metricTitle,
   metricSubtitle,
-  isPositive,
+  increase,
   tickerTitle,
+  arrowColor,
 }) => {
   return (
     <View style={styles.container}>
@@ -28,7 +29,7 @@ const MetricSquareTile = ({
       </Text>
       <Text style={styles.metricSubtitle}>{metricSubtitle}</Text>
       <View style={styles.tickerContainer}>
-        <Ticker positive={isPositive} />
+        <Ticker increase={increase} arrowColor={arrowColor} />
         <Text style={styles.tickerTitle}>{tickerTitle}</Text>
       </View>
     </View>

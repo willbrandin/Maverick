@@ -3,7 +3,13 @@ import { Text, View } from "react-native";
 import Ticker from "../../Ticker/Ticker.component";
 import styles from "./MetricRow.component.style";
 
-const MetricRow = ({ title, metricValue, metricSubtitle, isPositive }) => {
+const MetricRow = ({
+  title,
+  metricValue,
+  metricSubtitle,
+  increase,
+  arrowColor,
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -15,11 +21,13 @@ const MetricRow = ({ title, metricValue, metricSubtitle, isPositive }) => {
           <View style={styles.detailContainer}>
             <Text style={styles.detail}>{metricValue}</Text>
 
-            <Ticker positive={isPositive} />
+            <Ticker increase={increase} arrowColor={arrowColor} />
           </View>
-          <View style={{ alignSelf: "flex-end" }}>
-            <Text style={styles.tickerTitle}>{metricSubtitle}</Text>
-          </View>
+          {metricSubtitle ? (
+            <View style={{ alignSelf: "flex-end" }}>
+              <Text style={styles.tickerTitle}>{metricSubtitle}</Text>
+            </View>
+          ) : null}
         </View>
       </View>
     </View>

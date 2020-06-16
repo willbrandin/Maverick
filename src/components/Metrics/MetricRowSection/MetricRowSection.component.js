@@ -11,8 +11,9 @@ const MetricRowSection = ({ title, metrics }) => {
       title={metric.title}
       subtitle={metric.subtitle}
       metricValue={metric.metricValue}
-      isPositive={metric.isPositive}
-      metricSubtitle="Up from Last Week"
+      increase={metric.increase}
+      metricSubtitle={metric.tickerTitle}
+      arrowColor={metric.arrowColor}
       key={metric.title}
     />
   );

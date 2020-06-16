@@ -9,8 +9,4 @@ export default StyleSheet.create({
     justifyContent: "center",
     borderRadius: 20,
   },
-  negativeStyle: {
-    transform: [{ rotate: "180deg" }],
-  },
-  positiveStyle: {},
 });

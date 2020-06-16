@@ -22,7 +22,6 @@ const PinEntry = ({ onPinEntered, loading, error, onPinCleared }) => {
     newPinDisplay[newPin.length - 1] = 1;
     setDisplay(newPinDisplay);
     setPin(newPin);
-    console.log(`Current Pin is ${newPin}`);
 
     if (newPin.length == pinLimit) {
       onPinEntered(newPin);

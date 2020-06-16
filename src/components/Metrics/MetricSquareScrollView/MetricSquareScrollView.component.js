@@ -10,8 +10,9 @@ const MetricSquareScrollView = ({ metrics }) => {
       subtitle={metric.subtitle}
       metricTitle={metric.metricTitle}
       metricSubtitle={metric.metricSubtitle}
-      isPositive={metric.isPositive}
+      increase={metric.increase}
       tickerTitle={metric.tickerTitle}
+      arrowColor={metric.arrowColor}
       key={metric.title}
     />
   );
