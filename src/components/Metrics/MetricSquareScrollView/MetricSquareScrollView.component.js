@@ -8,7 +8,7 @@ const MetricSquareScrollView = ({ metrics }) => {
     <MetricSquareTile
       title={metric.title}
       subtitle={metric.subtitle}
-      metricTitle={metric.metricTitle}
+      metricValue={metric.metricValue}
       metricSubtitle={metric.metricSubtitle}
       increase={metric.increase}
       tickerTitle={metric.tickerTitle}

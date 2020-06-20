@@ -6,7 +6,7 @@ import Ticker from "../../Ticker/Ticker.component";
 const MetricSquareTile = ({
   title,
   subtitle,
-  metricTitle,
+  metricValue,
   metricSubtitle,
   increase,
   tickerTitle,
@@ -22,10 +22,10 @@ const MetricSquareTile = ({
         numberOfLines={1}
         style={{
           ...styles.metricLargeTitle,
-          fontSize: metricTitle.length > 4 ? 38 : 48,
+          fontSize: metricValue.length > 4 ? 38 : 48,
         }}
       >
-        {metricTitle}
+        {metricValue}
       </Text>
       <Text style={styles.metricSubtitle}>{metricSubtitle}</Text>
       <View style={styles.tickerContainer}>

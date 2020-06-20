@@ -12,7 +12,7 @@ const MetricRowSection = ({ title, metrics }) => {
       subtitle={metric.subtitle}
       metricValue={metric.metricValue}
       increase={metric.increase}
-      metricSubtitle={metric.tickerTitle}
+      metricSubtitle={metric.metricSubtitle}
       arrowColor={metric.arrowColor}
       key={metric.title}
     />

@@ -17,7 +17,7 @@ const defaultStyle = {
     paddingVertical: theme.SPACING.SMALL,
   },
   leadingContainer: {
-    flex: 2,
+    flex: 3,
     justifyContent: "center",
   },
   title: {
@@ -27,7 +27,7 @@ const defaultStyle = {
     ...caption,
   },
   trailingContainer: {
-    flex: 1,
+    flex: 2,
     justifyContent: "center",
   },
   detailContainer: {
@@ -48,20 +48,13 @@ const tabletStyle = {
   ...defaultStyle,
   container: {
     ...defaultStyle.container,
-    width: "48%",
-    marginHorizontal: theme.SPACING.SMALL,
+    width: "46%",
     marginVertical: theme.SPACING.SMALL,
     borderRadius: 6,
-  },
-  leadingContainer: {
-    flex: 5,
   },
   title: {
     ...title,
     color: theme.TERTIARY_TEXT_COLOR,
-  },
-  trailingContainer: {
-    flex: 2,
   },
   detail: {
     ...title,
