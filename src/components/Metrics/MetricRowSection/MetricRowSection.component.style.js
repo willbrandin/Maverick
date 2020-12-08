@@ -6,6 +6,8 @@ export default StyleSheet.create({
   title: {
     ...caption,
     fontFamily: theme.GOTHAM_BOLD,
+    fontWeight: "500",
+
     marginHorizontal: theme.SPACING.MEDIUM,
     paddingTop: theme.SPACING.MEDIUM,
   },

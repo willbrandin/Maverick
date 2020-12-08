@@ -14,6 +14,7 @@ export default StyleSheet.create({
   title: {
     ...body,
     fontFamily: theme.GOTHAM_BOLD,
+    fontWeight: "600",
     color: theme.TERTIARY_TEXT_COLOR,
   },
   subtitle: {

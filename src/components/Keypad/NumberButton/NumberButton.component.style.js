@@ -34,5 +34,6 @@ export default StyleSheet.create({
     color: theme.SECONDARY_TEXT_COLOR,
     textAlign: "center",
     fontFamily: theme.GOTHAM_BOLD,
+    fontWeight: "500",
   },
 });

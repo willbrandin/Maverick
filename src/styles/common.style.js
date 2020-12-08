@@ -4,6 +4,7 @@ export const largeTitle = {
   fontSize: theme.FONT_SIZE_LARGE_TITLE,
   color: theme.PRIMARY_TEXT_COLOR,
   fontFamily: theme.GOTHAM_BOLD,
+  fontWeight: "900",
 };
 
 export const title = {
@@ -11,12 +12,14 @@ export const title = {
   color: theme.PRIMARY_TEXT_COLOR,
   letterSpacing: 0.3,
   fontFamily: theme.GOTHAM_BOLD,
+  fontWeight: "700",
 };
 
 export const headline = {
   fontSize: theme.FONT_SIZE_HEADLINE,
   color: theme.PRIMARY_TEXT_COLOR,
   fontFamily: theme.GOTHAM_BOLD,
+  fontWeight: "600",
 };
 
 export const body = {

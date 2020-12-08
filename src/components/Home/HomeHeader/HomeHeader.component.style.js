@@ -19,6 +19,7 @@ export default StyleSheet.create({
   subtitle: {
     ...caption,
     fontFamily: theme.GOTHAM_BOLD,
+    fontWeight: "500",
   },
   icon: {
     color: theme.PRIMARY_TEXT_COLOR,

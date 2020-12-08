@@ -34,6 +34,7 @@ export default StyleSheet.create({
   title: {
     ...body,
     fontFamily: theme.GOTHAM_BOLD,
+    fontWeight: "500",
   },
   caption: {
     ...caption,
