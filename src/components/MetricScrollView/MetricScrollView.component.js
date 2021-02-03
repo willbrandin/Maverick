@@ -68,6 +68,7 @@ const MetricScrollView = ({ navigation, endpoint, title }) => {
 
         <ScrollView
           contentContainerStyle={{ paddingBottom: theme.SPACING.LARGE }}
+          indicatorStyle="white"
         >
           <HomeHeader
             title={title}

@@ -58,7 +58,7 @@ const DrawerContent = (props) => {
                 />
               )}
               label="Saint"
-              labelStyle={{ fontSize: 16 }}
+              labelStyle={{ fontSize: 14, fontFamily: "Gotham-Book" }}
               inactiveTintColor={styles.drawerItem.color}
               onPress={() => {
                 props.navigation.navigate("Saint");
@@ -75,7 +75,7 @@ const DrawerContent = (props) => {
               )}
               label="Raiders"
               inactiveTintColor={styles.drawerItem.color}
-              labelStyle={{ fontSize: 16 }}
+              labelStyle={{ fontSize: 14, fontFamily: "Gotham-Book" }}
               onPress={() => {
                 props.navigation.navigate("Raiders");
               }}
@@ -90,7 +90,7 @@ const DrawerContent = (props) => {
               )}
               label="Ricky Bobby"
               inactiveTintColor={styles.drawerItem.color}
-              labelStyle={{ fontSize: 16 }}
+              labelStyle={{ fontSize: 14, fontFamily: "Gotham-Book" }}
               onPress={() => {
                 props.navigation.navigate("RickyBobby");
               }}
@@ -105,7 +105,7 @@ const DrawerContent = (props) => {
               )}
               label="Tony Starch"
               inactiveTintColor={styles.drawerItem.color}
-              labelStyle={{ fontSize: 16 }}
+              labelStyle={{ fontSize: 14, fontFamily: "Gotham-Book" }}
               onPress={() => {
                 props.navigation.navigate("TonyStarch");
               }}
@@ -116,7 +116,7 @@ const DrawerContent = (props) => {
               )}
               label="Spider-Man"
               inactiveTintColor={styles.drawerItem.color}
-              labelStyle={{ fontSize: 16 }}
+              labelStyle={{ fontSize: 14, fontFamily: "Gotham-Book" }}
               onPress={() => {
                 props.navigation.navigate("Spiderman");
               }}
@@ -129,6 +129,7 @@ const DrawerContent = (props) => {
           icon={({ color, size }) => (
             <MaterialIcons name="exit-to-app" size={size} color={color} />
           )}
+          labelStyle={{ fontSize: 14, fontFamily: "Gotham-Book" }}
           inactiveTintColor="#94949e"
           label="Sign Out"
           onPress={onSignOutTapped}
